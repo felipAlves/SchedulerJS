@@ -1,16 +1,9 @@
 import React from 'react'
 import Head from 'next/head'
+import { Grid } from '@chakra-ui/core'
 
-const Home: React.FC = () => {
-  return (
-    <div>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main></main>
-    </div>
-  )
+const Dashboard = (): JSX.Element => {
+  return <div></div>
 }
 
-export default Home
+export default Dashboard
