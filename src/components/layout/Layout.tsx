@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid, Link, ListItem, ListIcon } from '@chakra-ui/core'
-import { Box, UnorderedList, Switch } from '@chakra-ui/react'
+import { Box, UnorderedList } from '@chakra-ui/react'
 
 import { CalendarIcon } from '@chakra-ui/icons'
 interface IPropsLayout {
@@ -12,11 +12,11 @@ export const Layout = ({ children }: IPropsLayout): JSX.Element => {
     <Grid
       as="main"
       height="100vh"
-      templateColumns="1fr 100vw 1fr"
-      templateRows="100px 1fr 1fr"
+      templateColumns="1fr 8fr 1fr"
+      templateRows="100px 800px 1fr"
       templateAreas="
       '. header .'
-      '. . .'
+      '. mainContainer .'
       '. . .'
     "
       justifyContent="center"
@@ -32,7 +32,6 @@ export const Layout = ({ children }: IPropsLayout): JSX.Element => {
         alignItems="center"
         padding={5}
       >
-        <Switch size="md" />
         <UnorderedList display="flex" listStyleType="none">
           <ListItem display="flex" alignItems="center" marginRight="20px">
             <ListIcon as={CalendarIcon} color="blue.600" />
@@ -59,6 +58,16 @@ export const Layout = ({ children }: IPropsLayout): JSX.Element => {
             </Link>
           </ListItem>
         </UnorderedList>
+      </Box>
+      <Box
+        display="flex"
+        height="100%"
+        width="100%"
+        gridArea="mainContainer"
+        alignItems="center"
+        justifyContent="center"
+      >
+        {children}
       </Box>
     </Grid>
   )
