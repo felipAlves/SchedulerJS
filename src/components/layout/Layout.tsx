@@ -1,7 +1,8 @@
 import React from 'react'
-import { Grid, Flex } from '@chakra-ui/core'
-import { Box } from '@chakra-ui/react'
+import { Grid, Link, ListItem, ListIcon } from '@chakra-ui/core'
+import { Box, UnorderedList, Switch } from '@chakra-ui/react'
 
+import { CalendarIcon } from '@chakra-ui/icons'
 interface IPropsLayout {
   children: JSX.Element | JSX.Element[]
 }
@@ -11,42 +12,54 @@ export const Layout = ({ children }: IPropsLayout): JSX.Element => {
     <Grid
       as="main"
       height="100vh"
-      templateRows="1fr 8fr 1fr"
-      templateColumns="10fr"
+      templateColumns="1fr 100vw 1fr"
+      templateRows="100px 1fr 1fr"
       templateAreas="
-        'header'
-        'mainContainer'
-        'footer'
-      "
+      '. header .'
+      '. . .'
+      '. . .'
+    "
       justifyContent="center"
       alignItems="center"
     >
-      <Flex
+      <Box
         gridArea="header"
-        alignItems="center"
-        alignContent="center"
+        height="100%"
+        lineHeight="base"
+        backgroundColor="white"
+        display="flex"
         justifyContent="center"
-      >
-        <Box bg="gray.600" w="100%" p={4} color="white">
-          This is the Box
-        </Box>
-      </Flex>
-      <Flex
-        gridArea="mainContainer"
         alignItems="center"
-        alignContent="center"
-        justifyContent="center"
+        padding={5}
       >
-        {children}
-      </Flex>
-      <Flex
-        gridArea="footer"
-        alignItems="center"
-        alignContent="center"
-        justifyContent="center"
-      >
-        Footer
-      </Flex>
+        <Switch size="md" />
+        <UnorderedList display="flex" listStyleType="none">
+          <ListItem display="flex" alignItems="center" marginRight="20px">
+            <ListIcon as={CalendarIcon} color="blue.600" />
+            <Link
+              p="10px"
+              fontSize="sm"
+              color="blue.600"
+              fontWeight="bold"
+              _hover={{ color: 'blue.500' }}
+            >
+              Agenda
+            </Link>
+          </ListItem>
+          <ListItem display="flex" alignItems="center" marginRight="20px">
+            <ListIcon as={CalendarIcon} color="gray.400" />
+            <Link
+              p="10px"
+              fontSize="sm"
+              color="gray.400"
+              fontWeight="bold"
+              _hover={{ color: 'blue.500' }}
+            >
+              Pesquisa
+            </Link>
+          </ListItem>
+        </UnorderedList>
+      </Box>
     </Grid>
   )
 }

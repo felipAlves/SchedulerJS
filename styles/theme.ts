@@ -22,10 +22,17 @@ const customTheme: DefaultTheme = {
     ...theme.colors,
     gray: {
       ...theme.colors.gray,
-      300: '#e1e1e6',
-      600: '#29292e',
+      300: '#f4f6fa',
+      400: '#868d96',
+      600: '#25313d',
       700: '#202024',
       800: '#121214'
+    },
+
+    blue: {
+      ...theme.colors.blue,
+      500: '#5c6efb',
+      600: '#455af7'
     }
   }
 }
